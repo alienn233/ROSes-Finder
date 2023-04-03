@@ -45,5 +45,6 @@ In this module, natural language processing techniques are used to extract Dipep
 This module takes the selected sequences from Module 1 as input and performs data processing and feature extraction in a similar manner as Module 1. The processed data is subjected to multiclass classification. Finally, the results of the three classifiers are subjected to soft voting to obtain the final result.
 
 ## Output
-The final classification results are stored in 'soft_vote.txt'.
-
+The final classification results are stored in 'final_Nclass.out'.
+## ROS-CNN model download address
+Due to GitHub's file size limitations, the ROSes-CNN model can be downloaded via Google Drive
