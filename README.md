@@ -1,4 +1,4 @@
-﻿# ROS_Finder
+﻿# ROSes-Finder
 The model mainly consists of two modules for classifying FASTA files. The whole process includes sequence processing, feature extraction, training and prediction using different models based on natural language processing, and selecting the classification results of different machine learning models by voting.
 
 # Outline for README
