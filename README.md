@@ -16,7 +16,7 @@ The model mainly consists of two modules for classifying FASTA files. The whole 
 - XGBoost 1.6.1
 - NumPy 1.17.3
 - scikit-learn 0.24.2
-- iFeature
+- iFeature.py git clone https://github.com/Superzchen/iFeature
 
 
 ##  Run Scripts
@@ -46,7 +46,7 @@ This module takes the selected sequences from Module 1 as input and performs dat
 
 ## Output
 The final classification results are stored in 'final_Nclass.out'.
-## ROS-CNN model download address
+## ROS-CNN models download address
 Due to GitHub's file size limitations, the ROSes-CNN model can be downloaded via Google Drive
 https://drive.google.com/file/d/1FDO7oSvnasWIvWRsaHGw1Nnc-KsVK7b-/view?usp=share_link
 https://drive.google.com/file/d/1rNKbvN9k0R2m0OoDnRT1oaX-KO_q4aS-/view?usp=share_link
