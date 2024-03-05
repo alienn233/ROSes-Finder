@@ -1,22 +1,7 @@
-fasta_file=$1
-### 1. diamond blastp
-diamond blastp --evalue 1e-3 --query ${fasta_file} --db cdhit99.ros.fa.dmnd --outfmt 6 qseqid sseqid qcovhsp pident length mismatch gapopen qstart qend sstart send evalue bitscore --out blastros.out -p 20
-echo "NOT FOUND" > final_Nclass.out
-### Check if blastros.out is empty
-if [ ! -s blastros.out ]; then
-    echo "Error: blastros.out is empty. Check your input or parameters."
-    cat err.txt  # Output error information
-    exit 1       # Exit with an error code
-fi
-
-### Get IDs
-awk '{print $1}' blastros.out > blastros.out.list
-seqkit grep -f blastros.out.list ${fasta_file} > yes.fa
-
-echo "blastp finished"
 ###module 1
+cp  ${fasta_file}  yes.fa
 ####CNN
-rm -f blastros.out
+
  python seq2pad.py  yes.fa  fa.pt
  python two_cnn.py
 rm -f fa.pt
@@ -44,14 +29,14 @@ python seq2pad.py yes-yes.fa yes.fa.pt
 python N_cnn.py 
 rm -f yes.fa.pt
 echo " ROS-CNN finish(2/2)"
-####XGboost ~/software/iFeature-master/iFeature.py
+####XGboost iFeature.py
 python ~/software/iFeature-master/iFeature.py  --file   yes-yes.fa --type CKSAAGP  --out CKSAAGP.out
 python Nclassxgb.py
 rm -f CKSAAGP.out
 echo "  ROS-XGBOOST (2/2)"
 
 ####NN
-python ~/software/iFeature-master/iFeature.py  --file   yes-yes.fa --type DPC --out 01
+python  iFeature.py  --file   yes-yes.fa --type DPC --out 01
 python scale.py
 python N_nn_test.py
 echo "ROS-NN finish(2/2)"
