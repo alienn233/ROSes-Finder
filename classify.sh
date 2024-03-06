@@ -1,4 +1,6 @@
 ###module 1
+fasta_file=$1
+
 cp  ${fasta_file}  yes.fa
 ####CNN
 
